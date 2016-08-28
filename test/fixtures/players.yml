@@ -1,7 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 player_one:
-  name: Mo
+  name: Larry
 
 player_two:
-  name: Larry
+  name: Mo
+
+player_three:
+  name: Curly
