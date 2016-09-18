@@ -1,24 +1,25 @@
-# README
+# Playlogger
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> You can't manage what you can't measure. </br>
+> -- Author unknown
 
-Things you may want to cover:
+**Playlogger** is a tool to track your game plays and help you make decisions about your game collection.
 
-* Ruby version
+## Setup
 
-* System dependencies
+```
+$ bundle install
+$ rails server
+```
 
-* Configuration
+## Dependencies
+* Ruby 2.3.1
+* Rails 5.0.0.1
+* Postgres >= 9.3.5
 
-* Database creation
+## Tests
+Tests are minitest and can be run with rake.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+$ rails test
+```
