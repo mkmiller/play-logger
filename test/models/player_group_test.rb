@@ -29,4 +29,30 @@ class PlayerGroupTest < ActiveSupport::TestCase
       group.players << players(:player_two)
     end
   end
+
+  test 'can create groups uniquely' do
+    player = players(:player_one)
+    PlayerGroup.find_or_create(players: [player])
+
+    assert_no_difference('PlayerGroup.count') do
+      2.times { PlayerGroup.find_or_create(players: [player]) }
+    end
+  end
+
+  test 'can create groups uniquely order independent' do
+    player1 = players(:player_one)
+    player2 = players(:player_two)
+
+    group1 = PlayerGroup.create(players: [player1, player2])
+
+    assert_no_difference('PlayerGroup.count') do
+      group2 = PlayerGroup.find_or_create(players: [player2, player1])
+
+      assert_equal group1, group2
+    end
+  end
+
+  test 'find with no arguments returns empty' do
+    assert_nil PlayerGroup.find_or_create(players: [])
+  end
 end
