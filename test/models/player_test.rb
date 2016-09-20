@@ -1,10 +1,6 @@
 require 'test_helper'
 
 class PlayerTest < ActiveSupport::TestCase
-  test 'has three fixtures' do
-    assert_equal 3, Player.count
-  end
-
   test 'has to have name' do
     player = Player.create
 
@@ -12,7 +8,7 @@ class PlayerTest < ActiveSupport::TestCase
   end
 
   test 'can belong to more than one group' do
-    player = players(:player_one)
+    player = create(:player)
 
     3.times { PlayerGroup.create(players: [player]) }
 

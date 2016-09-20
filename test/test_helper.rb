@@ -7,6 +7,7 @@ module ActiveSupport
     # Setup all fixtures in test/fixtures/*.yml
     # for all tests in alphabetical order.
     fixtures :all
+    include FactoryGirl::Syntax::Methods
 
     def assert_errors_on(model, *attrs)
       found_attrs = []

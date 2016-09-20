@@ -9,12 +9,11 @@ class PlayTest < ActiveSupport::TestCase
   end
 
   test 'can inspect players' do
-    game = games(:twixt)
-    player_one = players(:player_one)
-    player_two = players(:player_two)
-    group = PlayerGroup.create(players: [player_one, player_two])
-    winner = PlayerGroup.create(players: [player_one])
-    play = Play.create(game: game, player_group: group, winner_group: winner)
+    player = create(:player)
+    group = PlayerGroup.create(players: [player, create(:player)])
+    winner = PlayerGroup.create(players: [player])
+    play = Play.create(game: create(:game),
+                       player_group: group, winner_group: winner)
 
     assert_equal 2, play.players.count
     assert_equal 1, play.winners.count
